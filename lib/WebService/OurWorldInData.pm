@@ -1,15 +1,12 @@
 package WebService::OurWorldInData;
-# ABSTRACT: Perl library to connect with Our World in Data
+# ABSTRACT: Perl library to connect with the Our World in Data API
 # https://ourworldindata.org
 
 our $VERSION = '0.01';
 
 use v5.12;
 use Moo;
-use JSON qw(decode_json);
-
 use Carp;
-use Feature::Compat::Try;
 
 my $DEBUG = 0;
 
@@ -76,12 +73,42 @@ and pass that to the C<ua> attribute of the API constructor
     $tiny_ua = HTTP::Tiny->new({all_proxy => "http://proxy.url"});
     $client = WebService::OurWorldInData->new({ ua => $tiny_ua });
 
-=head1 SEE ALSO
+=head1 ACKNOWLEDGMENTS
 
-I am stealing from NeilB's L<WebService::HackerNews> to learn how he does
+I am stealing from Neil Bowers' L<WebService::HackerNews> to learn how he does
 APIs with L<HTTP::Tiny>. This is a re-write from my first version in Mojo.
+Any mistakes, of course, are mine.
 
-=head2 Terms and Conditions
+=head1 REPOSITORY
 
+L<https://github.com/duffee/perl-OurWorldInData>
+
+=head1 AUTHOR
+
+Boyd Duffee E<lt>duffee@cpan.orgE<gt>
+
+=head1 LICENSE
+
+MIT License
+
+Copyright (c) 2025 Boyd Duffee
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 =cut

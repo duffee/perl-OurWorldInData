@@ -15,6 +15,7 @@ nytprof.out
 
 # Dist::Zilla
 /.build/
+WebService-OurWorldInData-*
 
 # Module::Build
 _build/

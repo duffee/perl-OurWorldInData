@@ -8,12 +8,13 @@ BEGIN {
 use WebService::OurWorldInData::Chart;
 
 use Archive::Extract;
-use DateTime;
 use LWP::UserAgent::Mockable;
+use Time::Piece; # core module
 
+my $time = localtime;
 my $record_date = $ENV{ LWP_UA_MOCK } eq 'playback'
     ? '2025-07-16'
-    : DateTime->now->ymd;
+    : $time->ymd;
 
 my $dataset = 'sea-surface-temperature-anomaly';
 my $chart = WebService::OurWorldInData::Chart->new( chart => $dataset );
