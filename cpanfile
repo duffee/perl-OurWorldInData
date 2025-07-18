@@ -10,6 +10,7 @@ requires 'PerlX::Maybe';
 requires 'Types::Standard';
 
 recommends 'Text::CSV';
+recommends 'URI';
 
 on test => sub {
     requires 'Test2::V0';
@@ -17,6 +18,7 @@ on test => sub {
     requires 'Archive::Extract';
     requires 'LWP::UserAgent::Mockable';
     requires 'Time::Piece';
+    requires 'URI';
 
     suggests 'Archive::Zip';
 };
