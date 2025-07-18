@@ -21,7 +21,7 @@ for my $test_file ( @mocked_tests ) {
 
     ok my $recorded_tests = retrieve( $test_file ), $test_name . ' is a Storable object';
 
-    ok exists $recorded_tests->[0]{response}, 'Test mocks recorded for '. $test_name;
+    ok exists $recorded_tests->[0]{response}, 'Mocks recorded for '. $test_name;
 
     # unrecorded tests consist of qr/^pst0/
 }
