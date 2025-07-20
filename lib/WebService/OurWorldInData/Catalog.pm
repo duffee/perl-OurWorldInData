@@ -124,16 +124,6 @@ sub get_topics {
 
 1;
 
-=pod
-
-Looking for <a> tags where href is ^https://ourworldindata.org/grapher/(.+)
-class is chart-hit
-
-<a href="https://ourworldindata.org/grapher/covid-vaccine-doses-by-manufacturer" class="chart-hit" data-algolia-index="charts" data-algolia-object-id="4785" data-algolia-position="3"><div class="chart-hit-img-container"><img class="loaded" loading="lazy" width="850" height="600" src="https://ourworldindata.org/grapher/covid-vaccine-doses-by-manufacturer.png"></div><div class="chart-hit-title-container"><span class="ais-Highlight chart-hit-highlight"><strong class="ais-Highlight-highlighted">COVID</strong><span class="ais-Highlight-nonHighlighted">-19 vaccine doses administered by manufacturer</span></span> <span class="chart-hit-variant"></span></div></a>
-
-
-=cut
-
 __DATA__
 5-year-survival-rate-of-cancers-among-female-patients-in-england
 above-ground-biomass-in-forest-per-hectare
