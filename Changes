@@ -1,6 +1,7 @@
 {{$NEXT}}
-
-0.02_01   2025 Jul 18 (TRIAL RELEASE)
+====
+* adding fake Catalog module as a placeholder
+* make tests skip if function not installed to lower actual required modules to install
 
 0.02      2025 Jul 18
 ====
