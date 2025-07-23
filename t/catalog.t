@@ -21,7 +21,7 @@ is $catalog, object {
 
 subtest 'find all charts (partial list)' => sub {
     ok my $charts = $catalog->find, 'Can find charts';
-    is scalar @$charts, 3659, 'Found number of charts correct as of v0.03';
+    is scalar @$charts, 3659, 'Found number of charts correct as of v0.04';
     is $charts, array { all_items match qr/\w/; etc; }, 'No blank lines';
 };
 
@@ -41,7 +41,7 @@ subtest 'find search term' => sub {
 
 subtest 'get_topics (partial list)' => sub {
     ok my @topics = $catalog->get_topics, 'Can get topics list';
-    is @topics, 29, 'Found number of topics correct as of v0.03';
+    is @topics, 123, 'Found number of topics correct as of v0.04';
 };
 
 done_testing;
