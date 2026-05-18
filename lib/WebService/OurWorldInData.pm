@@ -15,7 +15,9 @@ has ua    => (
     default => sub {
         require HTTP::Tiny;
         require IO::Socket::SSL;
-        HTTP::Tiny->new;
+        HTTP::Tiny->new(
+            agent => "WebService-OurWorldInData/$VERSION ",
+        );
     },
 );
 
