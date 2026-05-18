@@ -15,11 +15,11 @@ recommends 'URI';
 on test => sub {
     requires 'Test2::V0' => '0.000139';
 
+    requires 'LWP::UserAgent';
+    requires 'LWP::UserAgent::Mockable';
     requires 'Time::Piece';
 
     recommends 'Archive::Extract';
-    recommends 'LWP::UserAgent';
-    recommends 'LWP::UserAgent::Mockable'; # stronly recommended
 
     suggests 'Archive::Zip';
 };
