@@ -39,7 +39,7 @@ sub get_response {
     elsif ( ref $self->ua eq 'LWP::UserAgent' ) {
         require URI;
         my $uri = URI->new( $url );
-        $uri->query( %$query ) if $query;
+        $uri->query_form( $query ) if $query;
         $res = $self->ua->get( $uri->as_string );
         _report_status_full($res);
     }

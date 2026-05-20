@@ -18,6 +18,7 @@ on test => sub {
     requires 'LWP::UserAgent';
     requires 'LWP::UserAgent::Mockable';
     requires 'Time::Piece';
+    requires 'URI';
 
     recommends 'Archive::Extract';
 
