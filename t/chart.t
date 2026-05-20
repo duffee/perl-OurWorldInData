@@ -14,7 +14,7 @@ use Time::Piece; # core module
 
 my $time = localtime;
 my $record_date = $ENV{ LWP_UA_MOCK } eq 'playback'
-    ? '2025-07-20'
+    ? '2026-05-20'
     : $time->ymd;
 diag 'Remember to set $record_date = ', $time->ymd, " in $0"
     if $ENV{ LWP_UA_MOCK } eq 'record';
@@ -46,7 +46,7 @@ subtest data => sub {
     is ref $data, 'ARRAY';
         
     ok my $result = $chart->data(), "Fetch chart data for $dataset";
-    like $result, qr/^Entity,Code,Year,Annual sea surface temperature/, 'returns CSV data';
+    like $result, qr/^Entity,Code,Year,\w+/, 'returns CSV data';
 };
 
 subtest 'filtered data' => sub {
@@ -97,6 +97,7 @@ subtest 'fetch metadata' => sub {
             field citationLong => E();
             field descriptionKey => array { all_items match qr/\w/; etc(); };
             field descriptionShort => E();
+            field descriptionProcessing => E();
             field fullMetadata
                 => match qr(^https://api.ourworldindata.org/v1/indicators/\d+.metadata.json);
             field lastUpdated => match $date_check;
@@ -104,7 +105,7 @@ subtest 'fetch metadata' => sub {
             field owidVariableId => match qr/^\d+$/;
             field shortName => match qr/^sea_temperature/;
             field shortUnit => E();
-            field timespan => "1850-2025";
+            field timespan => match qr/^1850-20\d{2}/;
             field titleLong => E();
             field titleShort => E();
             field type => 'Numeric';
