@@ -66,6 +66,7 @@ subtest 'simple Chart Search' => sub {
                     | WorldMap | SlopeChart | Marimekko
                     | ScatterPlot | StackedBar
                     | StackedArea | StackedDiscreteBar
+                    | Dumbbell # undocumented addition
                     /x;
             };
             field publishedAt => E();
