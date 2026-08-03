@@ -1,4 +1,6 @@
 {{$NEXT}}
+====
+* adding client for Indicators API which include the server health check
 
 0.03      2025 Jul 20
 ====

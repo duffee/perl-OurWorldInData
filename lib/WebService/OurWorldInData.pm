@@ -88,12 +88,29 @@ sub post_response {
 
 =head1 DESCRIPTION
 
-This is a base class for Our World in Data APIs. You probably should be
-using the L<WebService::OurWorldInData::Chart> class.
+This is a base class for Our World in Data APIs. You will want the modules
+for each endpoint:
+
+=over 4
+
+=item * L<WebService::OurWorldInData::Chart>
+
+=item * L<WebService::OurWorldInData::Tables>
+
+=item * L<WebService::OurWorldInData::Indicators>
+
+=item * L<WebService::OurWorldInData::Search>
+
+=back
+
+B<WARNING>: from the OWID dev page, I<These APIs are under active development>.
+For that reason, I will start by only providing the JSON responses from their
+server. As the API design crystalizes, I will add convenience handling classes
+for the Results so that you can iterate through them for specific bits of data.
 
 =head2 Getting Started
 
-Documentation for L<Chart API|https://docs.owid.io/projects/etl/api/chart-api/>
+OWID's L<Technical Documentation|https://docs.owid.io/projects/etl/api/>
 
 =head2 Proxies
 
