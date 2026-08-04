@@ -25,7 +25,7 @@ has [qw/page hitsPerPage/] => (
     isa => Int,
 );
 
-has [qw/countries topics/] => (
+has [qw/countries topics pageTypes/] => (
     is  => 'rw',
     isa => Str,
 );
@@ -103,6 +103,8 @@ The Search object can be created with the following attributes:
 =item topics - (charts only) topic name for filtering charts
 
 =item requireAllCountries - boolean (only if countries provided)
+
+=item pageTypes - (pages only) Comma-separated list of page content types to search
 
 =back
 
