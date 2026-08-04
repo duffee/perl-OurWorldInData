@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+0.04      2026 Aug 04
 ====
 * adding client for Indicators API which include the server health check
 
