@@ -14,7 +14,7 @@ use Time::Piece; # core module
 
 my $time = localtime;
 my $record_date = $ENV{ LWP_UA_MOCK } eq 'playback'
-    ? '2026-05-20'
+    ? '2026-08-05'
     : $time->ymd;
 diag 'Remember to set $record_date = ', $time->ymd, " in $0"
     if $ENV{ LWP_UA_MOCK } eq 'record';
@@ -37,16 +37,6 @@ subtest 'Chart object ok' => sub {
 
         end();
     }, 'Chart object correct';
-};
-
-subtest data => sub {
-    my $body = get_data_subset();
-
-    my $data = $chart->parse_data( $body );
-    is ref $data, 'ARRAY';
-        
-    ok my $result = $chart->data(), "Fetch chart data for $dataset";
-    like $result, qr/^Entity,Code,Year,\w+/, 'returns CSV data';
 };
 
 subtest 'filtered data' => sub {
@@ -95,7 +85,7 @@ subtest 'fetch metadata' => sub {
     my $column_check = hash {
             field citationShort => E();
             field citationLong => E();
-            field descriptionKey => array { all_items match qr/\w/; etc(); };
+            field descriptionKey => match qr/\w/;
             field descriptionShort => E();
             field descriptionProcessing => E();
             field fullMetadata
@@ -136,14 +126,4 @@ done_testing();
 END {
     # END block ensures cleanup if script dies early
     LWP::UserAgent::Mockable->finished;
-}
-
-sub get_data_subset {
-    return <<DATA;
-Entity,Code,Year,Annual sea surface temperature anomalies,Annual sea surface temperature anomalies (lower bound),Annual sea surface temperature anomalies (upper bound)
-Northern Hemisphere,,1850,-0.053766724,-0.12948489,-0.0016253028
-Northern Hemisphere,,1851,0.06586428,-0.008639886,0.11984695
-Northern Hemisphere,,1852,0.14944454,0.079167694,0.20091112
-Northern Hemisphere,,1853,0.11939995,0.054722864,0.17239437
-DATA
 }

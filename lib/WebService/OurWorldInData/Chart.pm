@@ -147,6 +147,7 @@ or save the data to a file
 
 Takes the output from the C<data> method and uses Text::CSV
 to read each line, returning an arrayref of rows.
+You will need to have the Text::CSV module installed.
 
 If the parsing throws an error, it bails warning you to save
 the file and parse it in full.
