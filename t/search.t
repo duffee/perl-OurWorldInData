@@ -108,6 +108,7 @@ subtest 'Page Search' => sub {
         type        => 'pages',
         page        => 1,
         hitsPerPage => 10,
+        pageTypes   => 'article',
     );
     is $pages, object {
         prop isa => 'WebService::OurWorldInData::Search';
@@ -115,6 +116,7 @@ subtest 'Page Search' => sub {
         field type        => 'pages';
         field page        => 1;
         field hitsPerPage => 10;
+        field pageTypes   => 'article';
 
         field base_url => 'https://ourworldindata.org';
         field ua       => check_isa 'LWP::UserAgent';
