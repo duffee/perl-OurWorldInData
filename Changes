@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+0.05      2026 Aug 06
 ====
 * adding client for Search API
 * fixing module fail when Text::CSV not installed
