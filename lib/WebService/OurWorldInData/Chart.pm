@@ -73,6 +73,45 @@ sub zip {
     return $response;
 }
 
+sub readme {
+    my ($self) = @_;
+
+    my $url = $self->get_path . '.readme.md';
+
+    my $response = $self->get_response( $url );
+    return $response;
+}
+
+sub config {
+    my ($self) = @_;
+
+    my $url = $self->get_path . '.config.json';
+
+    my $response = $self->get_response( $url );
+    my $json = decode_json( $response );
+    return $json;
+}
+
+sub values {
+    my ($self) = @_;
+
+    my $url = $self->get_path . '.values.json';
+
+    my $response = $self->get_response( $url );
+    my $json = decode_json( $response );
+    return $json;
+}
+
+sub search_result {
+    my ($self) = @_;
+
+    my $url = $self->get_path . '.search-result.json';
+
+    my $response = $self->get_response( $url );
+    my $json = decode_json( $response );
+    return $json;
+}
+
 sub parse_data {
     my ($self, $body) = @_;
 

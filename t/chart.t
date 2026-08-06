@@ -14,7 +14,7 @@ use Time::Piece; # core module
 
 my $time = localtime;
 my $record_date = $ENV{ LWP_UA_MOCK } eq 'playback'
-    ? '2026-08-05'
+    ? '2026-08-06'
     : $time->ymd;
 diag 'Remember to set $record_date = ', $time->ymd, " in $0"
     if $ENV{ LWP_UA_MOCK } eq 'record';
@@ -119,6 +119,67 @@ subtest 'fetch metadata' => sub {
     for my $key (sort keys %{$result->{columns}} ) {
         is $result->{columns}->{$key}, $column_check, "check column metadata for $key";
     }
+};
+
+subtest 'fetch readme' => sub {
+    ok my $result = $chart->readme, 'Get readme';
+
+    like $result, qr/^# Annual sea surface temperature/,
+        'check README.md title';
+    like $result, qr/^## CSV Structure/m,
+        'check README.md heading';
+};
+
+subtest 'fetch config' => sub {
+    ok my $result = $chart->config, 'Get config';
+
+    is $result,
+        hash {
+            field id => E();
+            field note => E();
+
+            etc();
+        },
+        'check JSON fields';
+};
+
+subtest 'fetch values' => sub {
+    ok my $result = $chart->values, 'Get values';
+
+    is $result,
+        hash {
+            field entityName => E();
+            field columns => E();
+            field startTime => E();
+            field endTime => E();
+            field source => E();
+            field startValues => E();
+            field endValues => E();
+
+            end();
+        },
+        'check JSON fields';
+};
+
+subtest 'fetch search_result' => sub {
+    ok my $result = $chart->search_result, 'Get search_result';
+
+    is $result,
+        hash {
+            field dataTable => E();
+            field entityType => E();
+            field entityTypePlural => E();
+            field grapherQueryParams => E();
+            field layout => E();
+            field numAvailableEntities => E();
+            field source => E();
+            field subtitle => E();
+            field title => E();
+            field unit => E();
+
+            end();
+        },
+        'check JSON fields';
 };
 
 done_testing();
