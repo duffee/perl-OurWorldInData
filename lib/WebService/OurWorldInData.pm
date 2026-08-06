@@ -2,7 +2,7 @@ package WebService::OurWorldInData;
 # ABSTRACT: Perl library to connect with the Our World in Data API
 # https://ourworldindata.org
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use v5.8;
 use Moo;
