@@ -1,5 +1,10 @@
 {{$NEXT}}
 
+0.06      2026 Aug 06
+====
+* adding endpoints for chart formats (readme, config, values, search-results)
+* added basic Error class
+
 0.05      2026 Aug 06
 ====
 * adding client for Search API
