@@ -1,4 +1,8 @@
 {{$NEXT}}
+====
+* adding client for Search API
+* fixing module fail when Text::CSV not installed
+* adding schema change for ChartMetadataColumn in Charts API
 
 0.04      2026 Aug 04
 ====
