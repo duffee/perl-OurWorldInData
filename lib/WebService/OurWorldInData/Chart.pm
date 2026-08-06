@@ -76,7 +76,11 @@ sub zip {
 sub parse_data {
     my ($self, $body) = @_;
 
-    require Text::CSV;
+    eval { require Text::CSV };
+    if ($@) {
+        carp "Install the Text::CSV module to use parse_data()\n", @_;
+        return;
+    }
     my $csv = Text::CSV->new;
     my @rows = ();
     for my $line (split /\n/, $body) {
