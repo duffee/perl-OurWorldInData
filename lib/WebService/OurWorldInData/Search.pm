@@ -51,6 +51,9 @@ sub query {
         $query->{countries} = $self->countries if $self->countries;
         $query->{topics} = $self->topics if $self->topics;
     }
+    else {
+        $query->{pageTypes} = $self->pageTypes if $self->pageTypes;
+    }
 
     if (exists $query->{countries}) {
         maybe $query->{requireAllCountries} => $self->require_all_countries;
